@@ -21,7 +21,7 @@ This is a simple Flask-based dashboard that reads data from CSV files and displa
 
 Follow these steps to set up and run the project.
 
-### 1. Clone the Repository
+###
 ```bash
 git clone https://github.com/your-username/your-repository.git
 cd your-repository
