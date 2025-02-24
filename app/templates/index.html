@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Competitor Analysis</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 0; }
+        h1, h2 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        .container { max-width: 1200px; margin: auto; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>SEO Competitor Analysis Dashboard</h1>
+
+    <h2>1. Competitor's Primary Keyword</h2>
+    <p><strong>Keyword:</strong> {{ competitor_keyword }}</p>
+
+    <h2>2. Top-Ranking Websites</h2>
+    <table>
+        <tr>
+            <th>Rank</th>
+            <th>Website</th>
+        </tr>
+        {% for site in top_ranking_sites %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td><a href="{{ site['URL'] }}" target="_blank">{{ site['URL'] }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>3. CTA Strategy Analysis</h2>
+    <table>
+        <tr>
+            <th>Website</th>
+            <th>CTAs Found</th>
+            <th>Header</th>
+            <th>Footer</th>
+            <th>Body</th>
+        </tr>
+        {% for cta in cta_data %}
+        <tr>
+            <td><a href="{{ cta['URL'] }}" target="_blank">{{ cta['URL'] }}</a></td>
+            <td>{{ cta['CTAs'] }}</td>
+            <td>{{ "✅" if cta['Header'] else "❌" }}</td>
+            <td>{{ "✅" if cta['Footer'] else "❌" }}</td>
+            <td>{{ "✅" if cta['Body'] else "❌" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>
